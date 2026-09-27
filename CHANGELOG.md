@@ -2,6 +2,11 @@
 
 All notable changes to the "threadlens" extension will be documented in this file.
 
+## [0.0.2] - Optimization & Fixes
+
+- 📦 Massively reduced extension bundle size (from 23MB down to ~280KB).
+- 🛠️ Fixed internal compatibility with newer VS Code APIs.
+
 ## [0.0.1] - Initial Release
 
 - Initial release of ThreadLens.

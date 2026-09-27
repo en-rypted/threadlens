@@ -91,6 +91,13 @@ You can add this in your `settings.json`:
 
 ## 📝 Release Notes
 
+### 📦 v0.0.2
+
+- 📦 Massively reduced extension bundle size (from 23MB down to ~280KB) by optimizing `.vscodeignore`.
+- 🛠️ Fixed internal compatibility with newer VS Code APIs.
+
+---
+
 ### 📦 v0.0.1
 
 - Initial release of ThreadLens!

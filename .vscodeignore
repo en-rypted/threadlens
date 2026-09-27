@@ -8,3 +8,8 @@ vsc-extension-quickstart.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+webview-ui/node_modules/**
+webview-ui/src/**
+webview-ui/public/**
+webview-ui/package.json
+webview-ui/package-lock.json
