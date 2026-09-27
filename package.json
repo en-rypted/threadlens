@@ -17,7 +17,7 @@
         {
           "id": "threadlens-explorer",
           "title": "ThreadLens",
-          "icon": "$(pulse)"
+          "icon": "images/sidebar-icon.svg"
         }
       ]
     },
@@ -26,7 +26,8 @@
         {
           "id": "threadlens.filesView",
           "name": "Loaded Thread Dumps",
-          "type": "tree"
+          "type": "tree",
+          "icon": "images/sidebar-icon.svg"
         }
       ]
     },
@@ -116,5 +117,15 @@
   "dependencies": {
     "@types/adm-zip": "^0.5.8",
     "adm-zip": "^0.6.1"
+  },
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/en-rypted/threadlens.git"
+  },
+  "publisher": "shivwakchaure",
+  "author": {
+    "name": "Shiv",
+    "email": "shivwakchaure19@gmail.com"
   }
 }

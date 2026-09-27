@@ -10,7 +10,8 @@ export class ThreadDumpItem extends vscode.TreeItem {
         super(label, vscode.TreeItemCollapsibleState.None);
         this.tooltip = `${this.label}`;
         this.description = timestamp;
-        this.iconPath = new vscode.ThemeIcon('file-text');
+        this.iconPath = vscode.ThemeIcon.File;
+        this.resourceUri = vscode.Uri.file(label);
         
         // When clicked, tell the extension to open this specific dump
         this.command = {

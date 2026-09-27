@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141E30" />
+      <stop offset="100%" stop-color="#243B55" />
+    </linearGradient>
+    <linearGradient id="lens" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+    <linearGradient id="thread" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38f9d7" />
+      <stop offset="100%" stop-color="#43e97b" />
+    </linearGradient>
+    <filter id="drop">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)" />
+  <rect width="124" height="124" x="2" y="2" rx="26" fill="none" stroke="#4facfe" stroke-width="2" opacity="0.4" />
+  <g transform="translate(20, 20) scale(4)" filter="url(#drop)">
+    <g fill="none" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" stroke="url(#lens)" />
+      <line x1="16.5" y1="16.5" x2="22" y2="22" stroke="url(#lens)" />
+      <path d="M 4 12 Q 7.5 6, 11 12 T 18 12" stroke="url(#thread)" />
+    </g>
+  </g>
+</svg>

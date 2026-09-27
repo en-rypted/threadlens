@@ -2,6 +2,7 @@ import { useState, useMemo, useRef, useEffect } from 'react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import { Search, Brain, AlertTriangle, ChevronDown, ChevronRight, BarChart2 } from 'lucide-react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend, BarChart, Bar, XAxis, YAxis, AreaChart, Area } from 'recharts';
+import logo from './assets/icon.svg';
 
 const FlameNode = ({ node, totalCount, onClick, path = [] }: { node: any, totalCount: number, onClick: (name: string) => void, path?: string[] }) => {
   const currentPath = [...path, node.name];
@@ -188,6 +189,7 @@ export default function App() {
     <div className="app-container">
       <header>
         <div className="flex items-center gap-2">
+            <img src={logo} alt="ThreadLens" style={{ width: 32, height: 32, borderRadius: 8, marginRight: 8 }} />
           <h1>Analysis: {filename}</h1>
           <button className="secondary" onClick={() => setShowCharts(!showCharts)}>
             <BarChart2 size={16} /> {showCharts ? 'Hide Charts' : 'Show Charts'}
@@ -397,3 +399,5 @@ function ThreadRow({ thread }: { thread: any }) {
     </div>
   );
 }
+
+
