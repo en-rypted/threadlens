@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Java Thread Dump",
+  "patterns": [
+    {
+      "include": "#thread-header"
+    },
+    {
+      "include": "#state"
+    },
+    {
+      "include": "#stack-trace"
+    },
+    {
+      "include": "#locks"
+    },
+    {
+      "include": "#hex-address"
+    }
+  ],
+  "repository": {
+    "thread-header": {
+      "match": "^(\"(.*?)\")\\s+(#\\d+)?\\s*(daemon)?",
+      "captures": {
+        "1": { "name": "string.quoted.double.threaddump" },
+        "3": { "name": "constant.numeric.threaddump" },
+        "4": { "name": "keyword.other.threaddump" }
+      }
+    },
+    "state": {
+      "match": "\\b(RUNNABLE|BLOCKED|WAITING|TIMED_WAITING)\\b",
+      "name": "keyword.control.state.threaddump"
+    },
+    "stack-trace": {
+      "match": "^\\s*(at)\\s+([\\w\\.\\$]+)\\.([\\w\\<\\>]+)\\((.*)\\)",
+      "captures": {
+        "1": { "name": "keyword.control.threaddump" },
+        "2": { "name": "entity.name.class.threaddump" },
+        "3": { "name": "entity.name.function.threaddump" },
+        "4": { "name": "string.unquoted.threaddump" }
+      }
+    },
+    "locks": {
+      "match": "^\\s*-\\s*(locked|waiting on|waiting to lock)\\s+<([^>]+)>\\s+\\(a\\s+([^)]+)\\)",
+      "captures": {
+        "1": { "name": "keyword.operator.threaddump" },
+        "2": { "name": "constant.numeric.hex.threaddump" },
+        "3": { "name": "entity.name.class.threaddump" }
+      }
+    },
+    "hex-address": {
+      "match": "0x[0-9a-fA-F]+",
+      "name": "constant.numeric.hex.threaddump"
+    }
+  },
+  "scopeName": "source.threaddump"
+}

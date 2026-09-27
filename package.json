@@ -1,0 +1,120 @@
+{
+  "name": "threadlens",
+  "displayName": "ThreadLens: AI Thread Dump Analysis",
+  "description": "Analyze Java thread dumps and detect deadlocks, with AI integration.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "threadlens-explorer",
+          "title": "ThreadLens",
+          "icon": "$(pulse)"
+        }
+      ]
+    },
+    "views": {
+      "threadlens-explorer": [
+        {
+          "id": "threadlens.filesView",
+          "name": "Loaded Thread Dumps",
+          "type": "tree"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "threadlens.loadFiles",
+          "when": "view == threadlens.filesView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "threadlens.removeDump",
+          "when": "view == threadlens.filesView",
+          "group": "inline"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "threadlens.analyze",
+        "title": "Analyze Thread Dump"
+      },
+      {
+        "command": "threadlens.loadFiles",
+        "title": "Load Files / ZIP",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "threadlens.openDump",
+        "title": "Open Thread Dump",
+        "icon": "$(file)"
+      },
+      {
+        "command": "threadlens.removeDump",
+        "title": "Remove Dump",
+        "icon": "$(trash)"
+      }
+    ],
+    "languages": [
+      {
+        "id": "threaddump",
+        "aliases": [
+          "Thread Dump",
+          "tdump"
+        ],
+        "extensions": [
+          ".tdump",
+          ".threaddump",
+          ".log"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "threaddump",
+        "scopeName": "source.threaddump",
+        "path": "./syntaxes/threaddump.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "ThreadLens",
+      "properties": {
+        "threadlens.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Optional: OpenAI API Key for AI Analysis (if you do not have Copilot or an alternative VS Code LM installed)."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "16.x",
+    "@types/vscode": "^1.138.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "@types/adm-zip": "^0.5.8",
+    "adm-zip": "^0.6.1"
+  }
+}
